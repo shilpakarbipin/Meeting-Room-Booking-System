@@ -43,8 +43,7 @@
           <textarea matInput placeholder="Enter attendees name" formControlName="attendees"></textarea>
       </mat-form-field>
 
-      <br>
-      <!-- <button mat-button color="primary">Create</button> -->
+      <br>      
       <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
         @if (data?.action !== 'view') {
@@ -57,8 +56,6 @@
                 }
             </button>
         }
-        
-        <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
       </mat-dialog-actions>
   </form>
 </div>

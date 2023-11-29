@@ -11,11 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {DatePipe} from '@angular/common';
 import { BookingMeetingService } from '../service/booking-meeting/booking-meeting.service'
 import { MatSelectModule } from '@angular/material/select';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 export interface PeriodicElement {
   title: string;
@@ -202,7 +198,6 @@ export class DialogBookingFormDialog implements OnInit{
     }
     let selectedMeetingRoom = [];
     selectedMeetingRoom = this.bookingMeetingService.bookingMeetingList.filter(x => x.room === dataparams.room);
-    debugger
     if (this.data.action === 'edit') {
       selectedMeetingRoom.splice(selectedMeetingRoom.findIndex(x => x.id === dataparams.id), 1)
     }
@@ -253,7 +248,6 @@ export class DialogConfirmationBookingMeetingDialog {
   }
   
   closeConfirmationDialog(params: string) {
-    debugger
     if (params == 'OK') {
       this.dialogConfirmRef.close(this.data);
     }

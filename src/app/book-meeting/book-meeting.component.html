@@ -1,28 +1,22 @@
-<h2 class="title-header">{{ title }}</h2>
-<div class="book-meeting-header">    
-    <button mat-button (click)="openDialog('new')" color="primary">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon> Book a meeting
-    </button>
-</div>
+  <h2 class="title-header">{{ title }}</h2>
+  <div class="book-meeting-header">    
+      <button mat-button (click)="openDialog('new')" color="primary">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon> Book a meeting
+      </button>
+  </div>
   <br>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> No. </th>
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
-  
-    <!-- Name Column -->
+
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Title </th>
       <td mat-cell *matCellDef="let element"> {{element.title}} </td>
     </ng-container>
-  
-    <!-- Weight Column -->
+
     <ng-container matColumnDef="description">
       <th mat-header-cell *matHeaderCellDef> Description </th>
       <td mat-cell *matCellDef="let element"> {{element.description}} </td>
@@ -33,7 +27,6 @@
       <td mat-cell *matCellDef="let element"> {{element.room}} </td>
     </ng-container>
   
-    <!-- Symbol Column -->
     <ng-container matColumnDef="startdate">
       <th mat-header-cell *matHeaderCellDef> Start Date </th>
       <td mat-cell *matCellDef="let element"> {{element.startdate | date: 'short'}} </td>
@@ -57,8 +50,6 @@
         </td>
       </ng-container>
 
-      
-  
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
@@ -68,40 +59,3 @@
       </div>
     </tr>
   </table>
-<!-- <div class="form-wrapper">
-    <h1>Book Meeting Form</h1>
-    <form [formGroup]="bookingForm">
-        <mat-form-field appearance="outline">
-            <mat-label>Title</mat-label>
-            <input matInput placeholder="Enter title" formControlName="title">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="outline">
-            <mat-label>Description</mat-label>
-            <textarea matInput placeholder="Enter description" formControlName="description"></textarea>
-        </mat-form-field>
-        <br>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Start Date Time</mat-label>
-            <input matInput [owlDateTimeTrigger]="dt" [owlDateTime]="dt" placeholder="Enter start date time" formControlName="timeFrom">
-            <owl-date-time #dt></owl-date-time>
-        </mat-form-field>
-
-        <br>
-        <mat-form-field appearance="outline">
-            <mat-label>End Date Time</mat-label>
-            <input matInput [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" placeholder="Enter end date time" formControlName="timeTo">
-            <owl-date-time #dt1></owl-date-time>
-        </mat-form-field>
-        
-        <br>
-        <mat-form-field appearance="outline">
-            <mat-label>Attendees</mat-label>
-            <textarea matInput placeholder="Enter attendees name" formControlName="attendees"></textarea>
-        </mat-form-field>
-
-        <br>
-        <button mat-button color="primary">Create</button>
-    </form>
-</div> -->
