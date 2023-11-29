@@ -1,0 +1,40 @@
+<div class="confirmation-details">
+  <h1> Confirm Book Meeting </h1>
+  <table style="width:100%">
+    <tr>
+      <th>Title:</th>
+      <th>{{ data?.title }}</th>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <th>{{ data?.description }}</th>
+    </tr>
+    <tr>
+      <th>Start Date:</th>
+      <th>{{ data?.startdate | date:'short' }}</th>
+    </tr>
+    <tr>
+      <th>End Date:</th>
+      <th>{{ data?.enddate | date:'short'}}</th>
+    </tr>
+    <tr>
+      <th>Attendees:</th>
+      <th>{{ data?.attendees }}</th>
+    </tr>
+  </table>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="closeConfirmationDialog('OK')" color="primary">OK</button>
+    <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+  </mat-dialog-actions>
+</div>
+  <style>
+    /* table, th, td {
+      border:1px solid black;
+    } */
+    .confirmation-details {
+      margin: 20px;
+    }
+  </style>  
+
+

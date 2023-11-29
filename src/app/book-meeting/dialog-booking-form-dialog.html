@@ -1,0 +1,54 @@
+<div class="booking-form-wrapper">
+  <h1>Book Meeting Form</h1>
+  <form class="booking-form" [formGroup]="bookingForm">
+      <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Enter title" formControlName="title">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Enter description" formControlName="description"></textarea>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="outline">
+          <mat-label>Start Date Time</mat-label>
+          <input matInput [owlDateTimeTrigger]="dt" [owlDateTime]="dt" placeholder="Enter start date time" formControlName="timeFrom">
+          <owl-date-time #dt></owl-date-time>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="outline">
+          <mat-label>End Date Time</mat-label>
+          <input matInput [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" placeholder="Enter end date time" formControlName="timeTo">
+          <owl-date-time #dt1></owl-date-time>
+      </mat-form-field>
+      
+      <br>
+      <mat-form-field appearance="outline">
+          <mat-label>Attendees</mat-label>
+          <textarea matInput placeholder="Enter attendees name" formControlName="attendees"></textarea>
+      </mat-form-field>
+
+      <br>
+      <!-- <button mat-button color="primary">Create</button> -->
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button [disabled]="!bookingForm.valid" (click)="createMeeting()" mat-button color="primary">Create</button>
+        <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+      </mat-dialog-actions>
+  </form>
+</div>
+
+<style>
+.booking-form-wrapper {
+    margin-top: 20px !important;
+    margin: 0 auto;
+}
+
+.booking-form .mat-mdc-form-field {
+    width: 300px;
+}
+</style>
+
