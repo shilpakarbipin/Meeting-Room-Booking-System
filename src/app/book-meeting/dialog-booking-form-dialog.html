@@ -13,15 +13,27 @@
       <br>
 
       <mat-form-field appearance="outline">
+        <mat-label>Select Room</mat-label>
+        <mat-select formControlName="room">
+            <mat-option value="Room 1">Room 1</mat-option>
+            <mat-option value="Room 2">Room 2</mat-option>
+            <mat-option value="Room 3">Room 3</mat-option>
+            <mat-option value="Room 4">Room 4</mat-option>
+            <mat-option value="Room 5">Room 5</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+      <mat-form-field appearance="outline">
           <mat-label>Start Date Time</mat-label>
-          <input matInput [owlDateTimeTrigger]="dt" [owlDateTime]="dt" placeholder="Enter start date time" formControlName="timeFrom">
+          <input matInput [min]="min" [owlDateTimeTrigger]="dt" [owlDateTime]="dt" placeholder="Enter start date time" formControlName="timeFrom">
           <owl-date-time #dt></owl-date-time>
       </mat-form-field>
 
       <br>
       <mat-form-field appearance="outline">
           <mat-label>End Date Time</mat-label>
-          <input matInput [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" placeholder="Enter end date time" formControlName="timeTo">
+          <input matInput [min]="startDate" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" placeholder="Enter end date time" formControlName="timeTo">
           <owl-date-time #dt1></owl-date-time>
       </mat-form-field>
       
@@ -35,7 +47,17 @@
       <!-- <button mat-button color="primary">Create</button> -->
       <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
-        <button [disabled]="!bookingForm.valid" (click)="createMeeting()" mat-button color="primary">Create</button>
+        @if (data?.action !== 'view') {
+            <button [disabled]="!bookingForm.valid" (click)="createMeeting()" mat-button color="primary">
+                @if (data?.action === 'new') {
+                    Create
+                }
+                @if (data?.action === 'edit') {
+                    Update
+                }
+            </button>
+        }
+        
         <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
       </mat-dialog-actions>
   </form>
