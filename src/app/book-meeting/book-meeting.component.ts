@@ -200,12 +200,14 @@ export class DialogBookingFormDialog implements OnInit{
         attendees: this.bookingForm.get('attendees')?.value
       }
     }
-    const meetingList = [];
-    //todo filter meeting room
     let selectedMeetingRoom = [];
     selectedMeetingRoom = this.bookingMeetingService.bookingMeetingList.filter(x => x.room === dataparams.room);
+    debugger
+    if (this.data.action === 'edit') {
+      selectedMeetingRoom.splice(selectedMeetingRoom.findIndex(x => x.id === dataparams.id), 1)
+    }
     let conflict = false;
-    for(let i=0; i<selectedMeetingRoom.length; i++) {
+    for(let i = 0; i < selectedMeetingRoom.length; i++) {
       let element = selectedMeetingRoom[i];
       if(!(dataparams.startdate > new Date(element.enddate)) || (dataparams.enddate < new Date(element.startdate))) {
         this.openSnackBar()
